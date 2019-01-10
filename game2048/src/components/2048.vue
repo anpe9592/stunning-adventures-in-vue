@@ -1,82 +1,81 @@
 <template>
   <div class="game">
-    
-  </div>
+      <div class="game-container">
+       <div class="board shadow-board">
+          <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   name: '2048',
   props: {
     msg: String
   }
 }
+
+Vue.component('game', {
+  data () {
+    return {
+      board: []
+    }
+  }
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.game{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-.game {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
+.game-container {
+  display: flex;
+  justify-content: center;
 }
 
-.red {
-  float: left;
-  position: relative;
-  width: 35%;
-  padding-bottom: 30%;
-  margin: 1.66%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #B20000;
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 23em;
+  padding: 6px;
+  border-radius: 6px;
+  background-color: rgba(58, 41, 76, 0.5);
 }
 
-.blue {
-  float: left;
-  position: relative;
-  width: 35%;
-  padding-bottom: 30%;
-  margin: 1.66%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #2100B2;
+.shadow-board {
+  position: absolute;
+  height: 368px;
+  background-color: initial;
 }
 
-.yellow {
-  float: left;
-  position: relative;
-  width: 35%;
-  padding-bottom: 30%;
-  margin: 1.66%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #CCCC00;
+.tile {
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  margin: 6px;
+  justify-content: center;
+  align-items: center;
+  color: #FEFDFB;
+  background-color: #91CCC8;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 5em;
+  height: 5em;
 }
 
-.green {
-  float: left;
-  position: relative;
-  width: 35%;
-  padding-bottom: 30%;
-  margin: 1.66%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #006400;
+.shadow-tile {
+  z-index: -1;
 }
 </style>
