@@ -1,15 +1,12 @@
 <template>
   <div class="game">
-    <div class="red"></div>
-    <div class="blue"></div>
-    <div class="yellow"></div>
-    <div class="green"></div>
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Game2048',
+  name: '2048',
   props: {
     msg: String
   }
