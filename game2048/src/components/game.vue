@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: '2048',
+  name: 'game',
   props: {
     msg: String
   }

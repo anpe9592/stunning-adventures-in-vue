@@ -6,7 +6,7 @@
 
 <script>
 // @ is an alias to /src
-import Game2048 from '@/components/2048.vue'
+import Game2048 from '@/components/game.vue'
 
 export default {
   name: 'home',
