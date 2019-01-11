@@ -1,6 +1,10 @@
 <template>
   <div class="game">
-    
+    <div class="game-container">
+      <div class="board shadow-board">
+        <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
+      </div>
+    </div>
   </div>
 </template>
 
