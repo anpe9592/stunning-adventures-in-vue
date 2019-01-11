@@ -4,7 +4,7 @@
 I'm following this tutorial:
 https://medium.com/babystep/build-2048-from-scratch-using-vue-js-part-1-3bc555298ad5
 
-They use their own Scaffold for plain Javascript in Vuejs
+They use their own Scaffold in their tutorial so that they can use plain Javascript in their Vuejs project.
 
 ## Project setup
 ```
