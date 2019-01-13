@@ -1,6 +1,9 @@
 <template>
   <div class="game">
     <div class="game-container">
+      <div class="board">
+        <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
+      </div>
       <div class="board shadow-board">
         <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
       </div>
@@ -9,8 +12,14 @@
 </template>
 
 <script>
+import tile from '@/components/tile.vue'
+
 export default {
   name: 'game',
+  components: {
+    tile
+  },
+
   data () {
     return {
       board: []
