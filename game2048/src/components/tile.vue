@@ -8,7 +8,7 @@
 export default {
   name: 'tile',
   props: {
-    stile: {
+    tile: {
       type: Object,
       required: true
     }
