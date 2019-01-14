@@ -1,5 +1,6 @@
 <template>
   <div class="game">
+    <game-menu @new-game="newGame()"></game-menu>
     <div class="game-container">
       <div class="board">
         <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
@@ -13,6 +14,7 @@
 
 <script>
 import tile from '@/components/tile.vue'
+import game-menu from '@/components/game-menu.vue'
 
 export default {
   name: 'game',
