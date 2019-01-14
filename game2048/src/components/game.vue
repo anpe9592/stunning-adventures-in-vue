@@ -19,7 +19,7 @@ import gameMenu from '@/components/gameMenu.vue'
 export default {
   name: 'game',
   components: {
-    tile
+    tile,
     gameMenu
   },
 
