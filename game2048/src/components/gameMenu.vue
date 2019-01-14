@@ -1,12 +1,12 @@
 <template>
-  <div class="game-menu">
+  <div class="gameMenu">
     {{ tile.value }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'game-menu',
+  name: 'gameMenu',
   props: {
     tile: {
       type: Object,
