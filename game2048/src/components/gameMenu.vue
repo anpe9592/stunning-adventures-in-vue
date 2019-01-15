@@ -74,8 +74,6 @@ export default {
   font-size: .75em;
 }
 
-.score-value {}
-
 .button {
   display: flex;
   height: 2em;
