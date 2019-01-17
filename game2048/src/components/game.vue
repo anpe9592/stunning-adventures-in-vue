@@ -15,7 +15,7 @@
 <script>
 import tile from '@/components/tile.vue'
 import gameMenu from '@/components/gameMenu.vue'
-import control  from '@/mixins/control'
+import control from '@/mixins/control'
 
 export default {
   name: 'game',
