@@ -1,10 +1,9 @@
-let myMixin = {
-  created: function () {
-    this.hello()
-  },
+export default {
+  name: 'control',
   methods: {
-    hello: function () {
-      console.log('hello from mixin!')
-    }
+    control: {
+
+    },
+    
   }
 }
