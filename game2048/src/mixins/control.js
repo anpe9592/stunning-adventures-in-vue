@@ -1,4 +1,13 @@
 export default {
+  data () {
+    return {
+      mergeAnimationsList: [],
+      slideAnimationsList: [],
+      mergeGameStateList: [],
+      slideGameStateList: []
+    }
+  },
+
   methods: {
     moveRight () {
       console.log('key 39')
