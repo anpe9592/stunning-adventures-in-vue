@@ -1,5 +1,21 @@
 export default {
   methods: {
+    moveRight () {
+      console.log('key 39')
+    },
+
+    moveLeft () {
+      console.log('key 37')
+    },
+
+    moveUp () {
+      console.log('key 38')
+    },
+
+    moveDown () {
+      console.log('key 40')
+    },
+
     registerControl () {
       const validKeyCodes = [39, 37, 38, 40]
       document.addEventListener('keydown', (event) => {
@@ -7,16 +23,16 @@ export default {
         if (validKeyCodes.includes(key)) {
           if (key === 39) {
             // right
-            console.log('key 39')
+            this.moveRight()
           } else if (key === 37) {
             // left
-            console.log('key 37')
+            this.moveLeft()
           } else if (key === 38) {
             // up
-            console.log('key 38')
+            this.moveUp()
           } else if (key === 40) {
             // down
-            console.log('key 40')
+            this.moveDown()
           }
         }
       })
