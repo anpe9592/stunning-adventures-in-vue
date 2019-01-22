@@ -54,7 +54,6 @@ export default {
     },
 
     moveRight () {
-      console.log('key 39')
       let changeLists = this.getChangeLists()
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
@@ -117,7 +116,6 @@ export default {
     },
 
     moveLeft () {
-      console.log('key 37')
       let changeLists = this.getChangeLists()
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
@@ -180,7 +178,6 @@ export default {
     },
 
     moveUp () {
-      console.log('key 38')
       let changeLists = this.getChangeLists()
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
@@ -243,7 +240,6 @@ export default {
     },
 
     moveDown () {
-      console.log('key 40')
       let changeLists = this.getChangeLists()
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
