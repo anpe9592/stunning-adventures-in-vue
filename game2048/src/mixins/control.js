@@ -12,9 +12,13 @@ export default {
 
   methods: {
     animate () {
-      let boardDidChange = this.slideAnimationsList.length > 0
+      let boardDidChange = this.mergeAnimationsList.length > 0 || this.slideAnimationsList.length > 0
 
       if (boardDidChange) {
+        while (this.mergeAnimationsList.length > 0) {
+          let animation = this.mergeAnimationsList.splice(0, 1)[0]
+          this.animateTiles(animation)
+        }
         while (this.slideAnimationsList.length > 0) {
           let animation = this.slideAnimationsList.splice(0, 1)[0]
           this.animateTiles(animation)
@@ -43,6 +47,7 @@ export default {
     getChangeLists () {
       let changeLists = {}
 
+      changeLists.merge = this.mergeAnimationsList
       changeLists.slide = this.slideAnimationsList
 
       return changeLists
@@ -54,7 +59,37 @@ export default {
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
       for (let a = 0; a < board.length; a++) {
+        this.mergeRight(board, a, changeLists)
         this.slideRight(board, a, changeLists)
+      }
+    },
+
+    mergeRight (board, a, changeLists) {
+      let i = board.length - 2
+      let j = board.length - 1
+
+      while (i >= 0) {
+        if (board[a][i].value === 0 && board[a][j].value === 0) {
+          j--
+          i--
+        } else if (board[a][i].value === board[a][j].value) {
+          changeLists.merge.push({ from: (a * 4 + i), to: (a * 4 + j) })
+
+          board[a][j].value = board[a][i].value + board[a][j].value
+          board[a][i].value = 0
+          j--
+          i--
+        } else if (board[a][j].value === 0) {
+          j--
+          i--
+        } else if (board[a][i].value !== 0 && board[a][j].value !== 0 && (i + 1 === j)) {
+          j--
+          i--
+        } else if (board[a][i].value !== 0 && board[a][j].value !== 0) {
+          j--
+        } else if (board[a][i].value === 0) {
+          i--
+        }
       }
     },
 
