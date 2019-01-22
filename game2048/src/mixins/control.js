@@ -197,7 +197,7 @@ export default {
           i++
         } else if (board[i][a].value === board[j][a].value) {
           changeLists.merge.push({ from: (i * 4 + a), to: (j * 4 + a) })
-          
+
           board[j][a].value = board[i][a].value + board[j][a].value
           board[i][a].value = 0
           j++
@@ -230,7 +230,7 @@ export default {
           k++
         } else if (board[l][a].value === 0 && board[k][a].value !== 0) {
           changeLists.slide.push({ from: (k * 4 + a), to: (l * 4 + a) })
-          
+
           board[l][a].value = board[k][a].value + board[l][a].value
           board[k][a].value = 0
           l++
@@ -259,7 +259,7 @@ export default {
           i--
         } else if (board[i][a].value === board[j][a].value) {
           changeLists.merge.push({ from: (i * 4 + a), to: (j * 4 + a) })
-          
+
           board[j][a].value = board[i][a].value + board[j][a].value
           board[i][a].value = 0
           j--
@@ -292,7 +292,7 @@ export default {
           k--
         } else if (board[l][a].value === 0 && board[k][a].value !== 0) {
           changeLists.slide.push({ from: (k * 4 + a), to: (l * 4 + a) })
-          
+
           board[l][a].value = board[k][a].value + board[l][a].value
           board[k][a].value = 0
           l--
@@ -320,7 +320,7 @@ export default {
             this.moveDown()
           }
           this.animate()
-        } else { return }
+        }
       })
     }
   }
