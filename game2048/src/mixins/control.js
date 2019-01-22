@@ -118,6 +118,65 @@ export default {
 
     moveLeft () {
       console.log('key 37')
+      let changeLists = this.getChangeLists()
+
+      let board = _.cloneDeep(_.chunk(this.board, 4))
+      for (let a = 0; a < board.length; a++) {
+        this.mergeLeft(board, a, changeLists)
+        this.slideLeft(board, a, changeLists)
+      }
+    },
+
+    mergeLeft (board, a, changeLists) {
+      let i = 1
+      let j = 0
+
+      while (i < board.length) {
+        if (board[a][i].value === 0 && board[a][j].value === 0) {
+          j++
+          i++
+        } else if (board[a][i].value === board[a][j].value) {
+          changeLists.merge.push({ from: (a * 4 + i), to: (a * 4 + j) })
+
+          board[a][j].value = board[a][i].value + board[a][j].value
+          board[a][i].value = 0
+          j++
+          i++
+        } else if (board[a][j].value === 0) {
+          j++
+          i++
+        } else if (board[a][i].value !== 0 && board[a][j].value !== 0 && (i - 1 === j)) {
+          j++
+          i++
+        } else if (board[a][i].value !== 0 && board[a][j].value !== 0) {
+          j++
+        } else if (board[a][i].value === 0) {
+          i++
+        }
+      }
+    },
+
+    slideLeft (board, a, changeLists) {
+      let k = 1
+      let l = 0
+      while (k < board.length) {
+        if (board[a][l].value !== 0) {
+          l++
+          k++
+        } else if (board[a][l].value !== 0 && board[a][k].value !== 0) {
+          l++
+          k++
+        } else if (board[a][l].value === 0 && board[a][k].value === 0) {
+          k++
+        } else if (board[a][l].value === 0 && board[a][k].value !== 0) {
+          changeLists.slide.push({ from: (a * 4 + k), to: (a * 4 + l) })
+
+          board[a][l].value = board[a][k].value + board[a][l].value
+          board[a][k].value = 0
+          l++
+          k++
+        }
+      }
     },
 
     moveUp () {
