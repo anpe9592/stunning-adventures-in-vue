@@ -244,6 +244,65 @@ export default {
 
     moveDown () {
       console.log('key 40')
+      let changeLists = this.getChangeLists()
+
+      let board = _.cloneDeep(_.chunk(this.board, 4))
+      for (let a = 0; a < board.length; a++) {
+        this.mergeDown(board, a, changeLists)
+        this.slideDown(board, a, changeLists)
+      }
+    },
+
+    mergeDown (board, a, changeLists) {
+      let i = board.length - 2
+      let j = board.length - 1
+
+      while (i >= 0) {
+        if (board[i][a].value === 0 && board[j][a].value === 0) {
+          j--
+          i--
+        } else if (board[i][a].value === board[j][a].value) {
+          changeLists.merge.push({ from: (i * 4 + a), to: (j * 4 + a) })
+          
+          board[j][a].value = board[i][a].value + board[j][a].value
+          board[i][a].value = 0
+          j--
+          i--
+        } else if (board[j][a].value === 0) {
+          j--
+          i--
+        } else if (board[i][a].value !== 0 && board[j][a].value !== 0 && (i - 1 === j)) {
+          j--
+          i--
+        } else if (board[i][a].value !== 0 && board[j][a].value !== 0) {
+          j--
+        } else if (board[i][a].value === 0) {
+          i--
+        }
+      }
+    },
+
+    slideDown (board, a, changeLists) {
+      let k = board.length - 2
+      let l = board.length - 1
+      while (k >= 0) {
+        if (board[l][a].value !== 0) {
+          l--
+          k--
+        } else if (board[l][a].value !== 0 && board[k][a].value !== 0) {
+          l--
+          k--
+        } else if (board[l][a].value === 0 && board[k][a].value === 0) {
+          k--
+        } else if (board[l][a].value === 0 && board[k][a].value !== 0) {
+          changeLists.slide.push({ from: (k * 4 + a), to: (l * 4 + a) })
+          
+          board[l][a].value = board[k][a].value + board[l][a].value
+          board[k][a].value = 0
+          l--
+          k--
+        }
+      }
     },
 
     registerControl () {
