@@ -125,6 +125,10 @@ export default {
   height: 5em;
 }
 
+.tile-empty {
+  background: initial;
+}
+
 .shadow-tile {
   z-index: -1;
 }
