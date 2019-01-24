@@ -267,7 +267,7 @@ export default {
         } else if (board[j][a].value === 0) {
           j--
           i--
-        } else if (board[i][a].value !== 0 && board[j][a].value !== 0 && (i - 1 === j)) {
+        } else if (board[i][a].value !== 0 && board[j][a].value !== 0 && (i + 1 === j)) {
           j--
           i--
         } else if (board[i][a].value !== 0 && board[j][a].value !== 0) {
