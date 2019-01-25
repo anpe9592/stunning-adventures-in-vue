@@ -129,6 +129,10 @@ export default {
   background: initial;
 }
 
+.tile-move {
+  transition: transform .09s ease;
+}
+
 .shadow-tile {
   z-index: -1;
 }
