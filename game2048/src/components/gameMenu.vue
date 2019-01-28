@@ -5,7 +5,10 @@
       <div class="scores space-right">
         <div class="score">
           <div class="score-title">SCORE</div>
-          <div class="score-value">0000</div>
+          <div class="score-value">{{ animatedScore }}</div>
+          <transition-group name="points" tag="div" class="points">
+            <div v-for="(pointIncrease, index) in pointsIncrease" :key="index">+ {{ pointIncrease }}</div>
+          </transition-group>
         </div>
         <div class="score">
           <div class="score-title">BEST</div>
@@ -23,6 +26,53 @@ export default {
   methods: {
     newGame () {
       this.$emit('new-game')
+    }
+  },
+
+  data() {
+    return {
+      pointsIncrease: []
+    }
+  },
+
+  watch: {
+    score(newValue, oldValue) {
+      const self = this
+
+      if (newValue > 0) {
+        let oldPoints = _.cloneDeep(self.pointsIncrease)
+        oldPoints.push(newValue - oldValue)
+        self.pointsIncrease = oldPoints
+      }
+
+      function animate () {
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
+      }
+
+      new TWEEN.Tween({ tweeningNumber: oldValue })
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .to({tweeningNumber: newValue}, 500)
+        .onUpdate(function () {
+          self.animatedScore = this.tweeningNumber.toFixed(0)
+        })
+        .start()
+      animate()
+    }
+  },
+
+  pointsIncrease(newPoints, oldPoints) {
+    if (newPoints.length > oldPoints.length) {
+      setTimeout(() => {
+        this.pointsIncrease.pop()
+      }, 200)
+    }
+  },
+
+  computed: {
+    score() {
+      return this.$store.state.score
     }
   }
 }
