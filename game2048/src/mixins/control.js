@@ -17,6 +17,7 @@ export default {
       if (boardDidChange) {
         while (this.mergeAnimationsList.length > 0) {
           let animation = this.mergeAnimationsList.splice(0, 1)[0]
+          this.updateScore(animation)
           this.animateTiles(animation)
         }
         while (this.slideAnimationsList.length > 0) {
@@ -42,6 +43,16 @@ export default {
 
       this.board.splice(to, 1)
       this.board.splice(to, 0, a)
+    },
+
+    updateScore (animation) {
+      let { from, to } = animation
+
+      let a = this.board[from]
+      let b = this.board[to]
+      let points = a.value + b.value
+
+      this.$store.dispatch('updateScore', points)
     },
 
     getChangeLists () {

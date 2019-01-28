@@ -7,7 +7,7 @@
           <div class="score-title">SCORE</div>
           <div class="score-value">{{ animatedScore }}</div>
           <transition-group name="points" tag="div" class="points">
-            <div v-for="(pointIncrease, index) in pointsIncrease" :key="index">+ {{ pointIncrease }}</div>
+
           </transition-group>
         </div>
         <div class="score">
@@ -21,6 +21,9 @@
 </template>
 
 <script>
+import TWEEN from 'tween.js'
+import _ from 'lodash'
+
 export default {
   name: 'gameMenu',
   methods: {
@@ -29,14 +32,15 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
+      animatedScore: 0,
       pointsIncrease: []
     }
   },
 
   watch: {
-    score(newValue, oldValue) {
+    score (newValue, oldValue) {
       const self = this
 
       if (newValue > 0) {
@@ -53,7 +57,7 @@ export default {
 
       new TWEEN.Tween({ tweeningNumber: oldValue })
         .easing(TWEEN.Easing.Quadratic.Out)
-        .to({tweeningNumber: newValue}, 500)
+        .to({ tweeningNumber: newValue }, 500)
         .onUpdate(function () {
           self.animatedScore = this.tweeningNumber.toFixed(0)
         })
@@ -62,7 +66,7 @@ export default {
     }
   },
 
-  pointsIncrease(newPoints, oldPoints) {
+  pointsIncrease (newPoints, oldPoints) {
     if (newPoints.length > oldPoints.length) {
       setTimeout(() => {
         this.pointsIncrease.pop()
@@ -71,7 +75,7 @@ export default {
   },
 
   computed: {
-    score() {
+    score () {
       return this.$store.state.score
     }
   }
