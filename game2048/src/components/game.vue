@@ -70,9 +70,7 @@ export default {
     },
 
     seedTwo () {
-      if (this.allTilesFull) {
-        return
-      }
+      if (this.allTilesFull) { return }
 
       let getRandomItem = () => {
         let randomIndex = Math.floor(Math.random() * this.board.length)
@@ -91,6 +89,7 @@ export default {
 
     newGame () {
       this.resetBoard()
+      this.resetScore()
       this.seedTwo()
       this.seedTwo()
       this.gameOver = false
@@ -104,6 +103,10 @@ export default {
             value: 0
           }
         })
+    },
+
+    resetScore () {
+      this.$store.dispatch('resetScore')
     }
   }
 }
