@@ -33,7 +33,7 @@ export default {
   },
 
   watch: {
-    allTilesFull(boardFull, _) {
+    allTilesFull (boardFull, _) {
       if (boardFull) {
         this.checkGameState()
       }
@@ -45,7 +45,7 @@ export default {
   },
 
   computed: {
-    allTilesFull() {
+    allTilesFull () {
       return !this.board.filter(tile => tile.value === 0).length > 0
     }
   },
