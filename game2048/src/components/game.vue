@@ -1,6 +1,6 @@
 <template>
   <div class="game">
-    <gameMenu @new-game="newGame()"></gameMenu>
+    <gameMenu @new-game="newGame()" :gameOver="gameOver"></gameMenu>
     <div class="game-container">
       <transition-group name="tile" tag="div" class="board">
         <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
@@ -27,7 +27,16 @@ export default {
 
   data () {
     return {
-      board: []
+      board: [],
+      gameOver: false
+    }
+  },
+
+  watch: {
+    allTilesFull(boardFull, _) {
+      if (boardFull) {
+        this.checkGameState()
+      }
     }
   },
 
@@ -35,7 +44,25 @@ export default {
     this.setupBoard()
   },
 
+  computed: {
+    allTilesFull() {
+      return !this.board.filter(tile => tile.value === 0).length > 0
+    }
+  },
+
   methods: {
+
+    checkGameState () {
+      this.moveUp('gamestate')
+      this.moveDown('gamestate')
+      this.moveLeft('gamestate')
+      this.moveRight('gamestate')
+      if (!this.mergeGameStateList.length > 0 || !this.slideGameStateList.length > 0) {
+        this.gameOver = true
+      }
+      this.mergeGameStateList = []
+      this.slideGameStateList = []
+    },
 
     setupBoard () {
       this.newGame()
@@ -43,6 +70,10 @@ export default {
     },
 
     seedTwo () {
+      if (this.allTilesFull) {
+        return
+      }
+
       let getRandomItem = () => {
         let randomIndex = Math.floor(Math.random() * this.board.length)
 
@@ -62,6 +93,7 @@ export default {
       this.resetBoard()
       this.seedTwo()
       this.seedTwo()
+      this.gameOver = false
     },
 
     resetBoard () {

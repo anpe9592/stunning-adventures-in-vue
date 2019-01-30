@@ -6,9 +6,6 @@
         <div class="score">
           <div class="score-title">SCORE</div>
           <div class="score-value">{{ animatedScore }}</div>
-          <transition-group name="points" tag="div" class="points">
-
-          </transition-group>
         </div>
         <div class="score">
           <div class="score-title">BEST</div>
@@ -17,6 +14,12 @@
       </div>
     </div>
     <a class="button space-right" @click="newGame()">New Game</a>
+    <transition name="fade">
+      <div v-if="gameOver" class="modal">
+        <h1>Game Over!</h1>
+        <a class="button button-black" @click="newGame()">Try again</a>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -26,6 +29,14 @@ import _ from 'lodash'
 
 export default {
   name: 'gameMenu',
+
+  props: {
+    gameOver: {
+      type: Boolean,
+      required: true
+    }
+  },
+
   methods: {
     newGame () {
       this.$emit('new-game')
@@ -147,6 +158,18 @@ export default {
 
 .space-right {
   margin-left: auto;
+}
+
+.fade-enter-active {
+  transition: opacity 2s;
+}
+
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
 </style>
