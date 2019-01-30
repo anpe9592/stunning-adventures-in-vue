@@ -54,20 +54,20 @@ export default {
 
       this.$store.dispatch('updateScore', points)
     },
-    
+
     getChangeLists (type) {
       let changeLists = {}
-      if (type === "animate") {
+      if (type === 'animate') {
         changeLists.merge = this.mergeAnimationsList
         changeLists.slide = this.slideAnimationsList
-      } else if (type === "gamestate") {
+      } else if (type === 'gamestate') {
         changeLists.merge = this.mergeGameStateList
         changeLists.slide = this.slideGameStateList
       }
       return changeLists
     },
 
-    moveRight (type = "animate") {
+    moveRight (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
@@ -129,7 +129,7 @@ export default {
       }
     },
 
-    moveLeft (type = "animate") {
+    moveLeft (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
@@ -191,7 +191,7 @@ export default {
       }
     },
 
-    moveUp (type = "animate") {
+    moveUp (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
@@ -253,7 +253,7 @@ export default {
       }
     },
 
-    moveDown (type = "animate") {
+    moveDown (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
       let board = _.cloneDeep(_.chunk(this.board, 4))
