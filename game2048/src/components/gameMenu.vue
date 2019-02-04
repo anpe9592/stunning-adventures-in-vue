@@ -6,6 +6,9 @@
         <div class="score">
           <div class="score-title">SCORE</div>
           <div class="score-value">{{ animatedScore }}</div>
+          <transition-group name="points" tag="div" class="points">
+            <div v-for="(pointIncrease, index) in pointsIncrease" :key="index+0">+ {{ pointIncrease }}</div>
+          </transition-group>
         </div>
         <div class="score">
           <div class="score-title">BEST</div>
@@ -34,12 +37,6 @@ export default {
     gameOver: {
       type: Boolean,
       required: true
-    }
-  },
-
-  methods: {
-    newGame () {
-      this.$emit('new-game')
     }
   },
 
@@ -88,6 +85,12 @@ export default {
   computed: {
     score () {
       return this.$store.state.score
+    }
+  },
+
+  methods: {
+    newGame () {
+      this.$emit('new-game')
     }
   }
 }
@@ -188,4 +191,26 @@ export default {
   z-index: 99999;
 }
 
+.points {
+  position: absolute;
+  color: #8BD096;
+  margin-top: -40px;
+}
+
+.points-item {
+  display: inline-block;
+}
+
+.points-enter-active, .points-leave-active {
+  transition: all 100ms;
+}
+
+.points-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.points-enter {
+  transform: translateY(30);
+}
 </style>
