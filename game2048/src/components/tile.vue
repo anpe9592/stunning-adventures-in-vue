@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import Velocity from 'velocity-animate'
+
 export default {
   name: 'tile',
   props: {
@@ -35,6 +37,19 @@ export default {
         '#EFCE84',
         '#F1ED82'
       ]
+    }
+  },
+
+  watch: {
+    value (newVal, oldVal) {
+      if (newVal > oldVal) {
+        setTimeout(() => {
+          Velocity(this.$el, { scale: 1.2 }, { duration: 50,
+            complete: () => {
+              Velocity(this.$el, { scale: 1 }, { duration: 50 })
+            } })
+        }, 50)
+      }
     }
   },
 
