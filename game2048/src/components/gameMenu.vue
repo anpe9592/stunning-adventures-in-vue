@@ -72,7 +72,7 @@ export default {
         .start()
       animate()
     },
-    
+
     pointsIncrease (newPoints, oldPoints) {
       if (newPoints.length > oldPoints.length) {
         setTimeout(() => {
