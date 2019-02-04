@@ -71,14 +71,14 @@ export default {
         })
         .start()
       animate()
-    }
-  },
-
-  pointsIncrease (newPoints, oldPoints) {
-    if (newPoints.length > oldPoints.length) {
-      setTimeout(() => {
-        this.pointsIncrease.pop()
-      }, 200)
+    },
+    
+    pointsIncrease (newPoints, oldPoints) {
+      if (newPoints.length > oldPoints.length) {
+        setTimeout(() => {
+          this.pointsIncrease.pop()
+        }, 200)
+      }
     }
   },
 
