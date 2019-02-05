@@ -10,6 +10,7 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "tween.js": "^16.6.0",
+    "typeface-montserrat": "^0.0.54",
     "velocity-animate": "^1.5.2",
     "vue": "^2.5.21",
     "vue-router": "^3.0.1",
