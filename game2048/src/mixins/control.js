@@ -53,6 +53,7 @@ export default {
       let points = a.value + b.value
 
       this.$store.dispatch('updateScore', points)
+      this.$store.dispatch('updateBest', points)
     },
 
     getChangeLists (type) {

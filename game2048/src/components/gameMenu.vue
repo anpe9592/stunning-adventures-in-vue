@@ -12,7 +12,7 @@
         </div>
         <div class="score">
           <div class="score-title">BEST</div>
-          <div class="score-value">0000</div>
+          <div class="score-value">{{ animatedBest }}</div>
         </div>
       </div>
     </div>
@@ -43,6 +43,7 @@ export default {
   data () {
     return {
       animatedScore: 0,
+      animatedBest: 0,
       pointsIncrease: []
     }
   },
@@ -79,12 +80,41 @@ export default {
           this.pointsIncrease.pop()
         }, 200)
       }
+    },
+
+    best (newValue, oldValue) {
+      const self = this
+
+      if (newValue > 0) {
+        let oldPoints = _.cloneDeep(self.pointsIncrease)
+        oldPoints.push(newValue - oldValue)
+        self.pointsIncrease = oldPoints
+      }
+
+      function animate () {
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
+      }
+
+      new TWEEN.Tween({ tweeningNumber: oldValue })
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .to({ tweeningNumber: newValue }, 500)
+        .onUpdate(function () {
+          self.animatedBest = this.tweeningNumber.toFixed(0)
+        })
+        .start()
+      animate()
     }
   },
 
   computed: {
     score () {
       return this.$store.state.score
+    },
+
+    best () {
+      return this.$store.state.best
     }
   },
 
