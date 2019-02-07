@@ -81,31 +81,31 @@ export default {
         }, 200)
       }
     },
+    
+    // best (newValue, oldValue) {
+    //   const self = this
 
-    best (newValue, oldValue) {
-      const self = this
+    //   if (newValue > 0) {
+    //     let oldPoints = _.cloneDeep(self.pointsIncrease)
+    //     oldPoints.push(newValue - oldValue)
+    //     self.pointsIncrease = oldPoints
+    //   }
 
-      if (newValue > 0) {
-        let oldPoints = _.cloneDeep(self.pointsIncrease)
-        oldPoints.push(newValue - oldValue)
-        self.pointsIncrease = oldPoints
-      }
+    //   function animate () {
+    //     if (TWEEN.update()) {
+    //       requestAnimationFrame(animate)
+    //     }
+    //   }
 
-      function animate () {
-        if (TWEEN.update()) {
-          requestAnimationFrame(animate)
-        }
-      }
-
-      new TWEEN.Tween({ tweeningNumber: oldValue })
-        .easing(TWEEN.Easing.Quadratic.Out)
-        .to({ tweeningNumber: newValue }, 500)
-        .onUpdate(function () {
-          self.animatedBest = this.tweeningNumber.toFixed(0)
-        })
-        .start()
-      animate()
-    }
+    //   new TWEEN.Tween({ tweeningNumber: oldValue })
+    //     .easing(TWEEN.Easing.Quadratic.Out)
+    //     .to({ tweeningNumber: newValue }, 500)
+    //     .onUpdate(function () {
+    //       self.animatedBest = this.tweeningNumber.toFixed(0)
+    //     })
+    //     .start()
+    //   animate()
+    // }
   },
 
   computed: {
@@ -120,6 +120,10 @@ export default {
 
   methods: {
     newGame () {
+      if (this.$store.state.best < this.$store.state.score) {
+        this.$store.dispatch('updateBest', this.$store.state.score)
+        this.animatedBest = this.$store.state.best
+      }
       this.$emit('new-game')
     }
   }
