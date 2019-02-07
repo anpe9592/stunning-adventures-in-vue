@@ -13,7 +13,7 @@ export default new Vuex.Store({
       state.score += score
     },
     updateBest (state, best) {
-      state.best += best
+      state.best = best
     },
     resetScore (state) {
       state.score = 0
