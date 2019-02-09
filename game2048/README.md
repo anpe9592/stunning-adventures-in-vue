@@ -6,6 +6,9 @@ https://medium.com/babystep/build-2048-from-scratch-using-vue-js-part-1-3bc55529
 
 They use their own Scaffold in their tutorial so that they can use plain Javascript in their Vuejs project.
 
+Their git repo
+https://github.com/babystep-io/2048
+
 ## Project setup
 ```
 yarn install
