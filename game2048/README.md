@@ -1,12 +1,15 @@
 # game2048
 
+![Screenshot](/pic/2048.png)
+
 ## Notes
-I'm following this tutorial:
-https://medium.com/babystep/build-2048-from-scratch-using-vue-js-part-1-3bc555298ad5
+I'm following this tutorial:<br />
+<a href="https://medium.com/babystep/build-2048-from-scratch-using-vue-js-part-1-3bc555298ad5">Build 2048 from scratch using Vue.js (part 1)</a><br />
+<a href="https://medium.com/babystep/build-2048-from-scratch-using-vue-js-part-2-e622a4c7e7a0">Build 2048 from scratch using Vue.js (part 2)</a><br />
 
 They use their own Scaffold in their tutorial so that they can use plain Javascript in their Vuejs project.
 
-Their git repo
+Their git repo:<br />
 https://github.com/babystep-io/2048
 
 ## Project setup
