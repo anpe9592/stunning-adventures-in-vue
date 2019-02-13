@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "lodash": "^4.17.11",
     "tween.js": "^16.6.0",
     "typeface-montserrat": "^0.0.54",
