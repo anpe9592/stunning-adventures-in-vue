@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import Hammer from 'hammerjs/hammer'
 
 export default {
   data () {
@@ -316,6 +317,13 @@ export default {
     },
 
     registerControl () {
+      let swipe = document.getElementById('swipe')
+      let mc = new Hammer(swipe)
+      mc.on('panleft panright panup pandown tap press', function (ev) {
+        swipe.textContent = ev.type
+        console.log(swipe.textContent)
+      })
+
       const validKeyCodes = [39, 37, 38, 40]
       document.addEventListener('keydown', (event) => {
         let key = event.which
