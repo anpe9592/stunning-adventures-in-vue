@@ -68,6 +68,7 @@ export default {
     setupBoard () {
       this.newGame()
       this.registerControl()
+      this.touchControl()
     },
 
     seedTwo () {
