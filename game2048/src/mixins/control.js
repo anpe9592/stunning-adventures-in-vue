@@ -1,5 +1,4 @@
 import _ from 'lodash'
-import Hammer from 'hammerjs/hammer'
 
 export default {
   data () {
@@ -314,29 +313,6 @@ export default {
           k--
         }
       }
-    },
-
-    touchControl () {
-      let swipe = document.getElementById('swipe')
-      let mc = new Hammer(swipe)
-      mc.on('panleft panright panup pandown', function (ev) {
-        swipe.textContent = ev.type
-        console.log(this.moveRight)
-        if (ev.type === 'panright') {
-          // right
-          this.moveRight()
-        } else if (ev.type === 'panleft') {
-          // left
-          this.moveLeft()
-        } else if (ev.type === 'panup') {
-          // up
-          this.moveUp()
-        } else if (ev.type === 'pandown') {
-          // down
-          this.moveDown()
-        }
-        this.animate()
-      })
     },
 
     registerControl () {

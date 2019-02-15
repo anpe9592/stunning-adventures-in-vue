@@ -1,6 +1,5 @@
 <template>
   <div class="game">
-    <div id="swipe">hello</div>
     <gameMenu @new-game="newGame()" :gameOver="gameOver"></gameMenu>
     <div class="game-container">
       <transition-group name="tile" tag="div" class="board">
@@ -68,7 +67,6 @@ export default {
     setupBoard () {
       this.newGame()
       this.registerControl()
-      this.touchControl()
     },
 
     seedTwo () {
