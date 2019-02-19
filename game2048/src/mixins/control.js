@@ -336,6 +336,22 @@ export default {
           this.animate()
         }
       })
+    },
+
+    onPan (event) {
+      // 0 = none, 2 = left, 4 = right, 8 = up, 16 = down
+      const direction = event.direction
+
+      if (direction === 4) {
+        this.moveRight()
+      } else if (direction === 2) {
+        this.moveLeft()
+      } else if (direction === 8) {
+        this.moveUp()
+      } else if (direction === 16) {
+        this.moveDown()
+      }
+      this.animate()
     }
   }
 }
