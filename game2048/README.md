@@ -12,6 +12,9 @@ They use their own Scaffold in their tutorial so that they can use plain Javascr
 Their git repo:<br />
 https://github.com/babystep-io/2048
 
+Followd this post by Lisi Linhart on how to add Hammerjs to Vuejs:<br />
+https://lisilinhart.info/posts/touch-interaction-vue/
+
 ## Project setup
 ```
 yarn install
