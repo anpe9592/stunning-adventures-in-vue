@@ -342,7 +342,7 @@ export default {
       // 0 = none, 2 = left, 4 = right, 8 = up, 16 = down
       const direction = event.direction
 
-      if (direction !== 0) {
+      if (event.isFinal) {
         if (direction === 4 && (direction !== 8 || direction !== 16)) {
           this.moveRight()
         } else if (direction === 2 && (direction !== 8 || direction !== 16)) {
