@@ -315,29 +315,6 @@ export default {
       }
     },
 
-    registerControl () {
-      const validKeyCodes = [39, 37, 38, 40]
-      document.addEventListener('keydown', (event) => {
-        let key = event.which
-        if (_.includes(validKeyCodes, key)) {
-          if (key === 39) {
-            // right
-            this.moveRight()
-          } else if (key === 37) {
-            // left
-            this.moveLeft()
-          } else if (key === 38) {
-            // up
-            this.moveUp()
-          } else if (key === 40) {
-            // down
-            this.moveDown()
-          }
-          this.animate()
-        }
-      })
-    },
-
     onPan (event) {
       // 0 = none, 2 = left, 4 = right, 8 = up, 16 = down
       const direction = event.direction
