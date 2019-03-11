@@ -4,14 +4,14 @@
       <div class="title">TicTacToe</div>
       <div class="scores space-right">
         <div class="score">
-          <div class="score-title">SCORE</div>
+          <div class="score-title">X</div>
           <div class="score-value">{{ animatedScore }}</div>
           <transition-group name="points" tag="div" class="points">
             <div v-for="(pointIncrease, index) in pointsIncrease" :key="index+0">+ {{ pointIncrease }}</div>
           </transition-group>
         </div>
         <div class="score">
-          <div class="score-title">BEST</div>
+          <div class="score-title">O</div>
           <div class="score-value">{{ animatedBest }}</div>
         </div>
       </div>
