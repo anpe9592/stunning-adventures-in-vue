@@ -70,7 +70,7 @@ export default {
     moveRight (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
-      let board = _.cloneDeep(_.chunk(this.board, 4))
+      let board = _.cloneDeep(_.chunk(this.board, 3))
       for (let a = 0; a < board.length; a++) {
         this.mergeRight(board, a, changeLists)
         this.slideRight(board, a, changeLists)
@@ -86,7 +86,7 @@ export default {
           j--
           i--
         } else if (board[a][i].value === board[a][j].value) {
-          changeLists.merge.push({ from: (a * 4 + i), to: (a * 4 + j) })
+          changeLists.merge.push({ from: (a * 2 + i), to: (a * 2 + j) })
 
           board[a][j].value = board[a][i].value + board[a][j].value
           board[a][i].value = 0
@@ -119,7 +119,7 @@ export default {
         } else if (board[a][l].value === 0 && board[a][k].value === 0) {
           k--
         } else if (board[a][l].value === 0 && board[a][k].value !== 0) {
-          changeLists.slide.push({ from: (a * 4 + k), to: (a * 4 + l) })
+          changeLists.slide.push({ from: (a * 2 + k), to: (a * 2 + l) })
 
           board[a][l].value = board[a][k].value + board[a][l].value
           board[a][k].value = 0
@@ -132,7 +132,7 @@ export default {
     moveLeft (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
-      let board = _.cloneDeep(_.chunk(this.board, 4))
+      let board = _.cloneDeep(_.chunk(this.board, 3))
       for (let a = 0; a < board.length; a++) {
         this.mergeLeft(board, a, changeLists)
         this.slideLeft(board, a, changeLists)
@@ -148,7 +148,7 @@ export default {
           j++
           i++
         } else if (board[a][i].value === board[a][j].value) {
-          changeLists.merge.push({ from: (a * 4 + i), to: (a * 4 + j) })
+          changeLists.merge.push({ from: (a * 2 + i), to: (a * 2 + j) })
 
           board[a][j].value = board[a][i].value + board[a][j].value
           board[a][i].value = 0
@@ -181,7 +181,7 @@ export default {
         } else if (board[a][l].value === 0 && board[a][k].value === 0) {
           k++
         } else if (board[a][l].value === 0 && board[a][k].value !== 0) {
-          changeLists.slide.push({ from: (a * 4 + k), to: (a * 4 + l) })
+          changeLists.slide.push({ from: (a * 2 + k), to: (a * 2 + l) })
 
           board[a][l].value = board[a][k].value + board[a][l].value
           board[a][k].value = 0
@@ -194,7 +194,7 @@ export default {
     moveUp (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
-      let board = _.cloneDeep(_.chunk(this.board, 4))
+      let board = _.cloneDeep(_.chunk(this.board, 3))
       for (let a = 0; a < board.length; a++) {
         this.mergeUp(board, a, changeLists)
         this.slideUp(board, a, changeLists)
@@ -210,7 +210,7 @@ export default {
           j++
           i++
         } else if (board[i][a].value === board[j][a].value) {
-          changeLists.merge.push({ from: (i * 4 + a), to: (j * 4 + a) })
+          changeLists.merge.push({ from: (i * 2 + a), to: (j * 2 + a) })
 
           board[j][a].value = board[i][a].value + board[j][a].value
           board[i][a].value = 0
@@ -243,7 +243,7 @@ export default {
         } else if (board[l][a].value === 0 && board[k][a].value === 0) {
           k++
         } else if (board[l][a].value === 0 && board[k][a].value !== 0) {
-          changeLists.slide.push({ from: (k * 4 + a), to: (l * 4 + a) })
+          changeLists.slide.push({ from: (k * 2 + a), to: (l * 2 + a) })
 
           board[l][a].value = board[k][a].value + board[l][a].value
           board[k][a].value = 0
@@ -256,7 +256,7 @@ export default {
     moveDown (type = 'animate') {
       let changeLists = this.getChangeLists(type)
 
-      let board = _.cloneDeep(_.chunk(this.board, 4))
+      let board = _.cloneDeep(_.chunk(this.board, 3))
       for (let a = 0; a < board.length; a++) {
         this.mergeDown(board, a, changeLists)
         this.slideDown(board, a, changeLists)
@@ -272,7 +272,7 @@ export default {
           j--
           i--
         } else if (board[i][a].value === board[j][a].value) {
-          changeLists.merge.push({ from: (i * 4 + a), to: (j * 4 + a) })
+          changeLists.merge.push({ from: (i * 2 + a), to: (j * 2 + a) })
 
           board[j][a].value = board[i][a].value + board[j][a].value
           board[i][a].value = 0
@@ -305,7 +305,7 @@ export default {
         } else if (board[l][a].value === 0 && board[k][a].value === 0) {
           k--
         } else if (board[l][a].value === 0 && board[k][a].value !== 0) {
-          changeLists.slide.push({ from: (k * 4 + a), to: (l * 4 + a) })
+          changeLists.slide.push({ from: (k * 2 + a), to: (l * 2 + a) })
 
           board[l][a].value = board[k][a].value + board[l][a].value
           board[k][a].value = 0
