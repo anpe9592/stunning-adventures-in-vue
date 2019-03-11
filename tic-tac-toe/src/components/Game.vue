@@ -96,7 +96,7 @@ export default {
     },
 
     resetBoard () {
-      this.board = Array.apply(null, { length: 16 })
+      this.board = Array.apply(null, { length: 9 })
         .map(function (_, index) {
           return {
             id: index,
@@ -131,7 +131,7 @@ export default {
 .board {
   display: flex;
   flex-wrap: wrap;
-  width: 23em;
+  width: 277px;
   padding: 6px;
   border-radius: 6px;
   background-color: rgba(58, 41, 76, 0.5);
@@ -139,7 +139,7 @@ export default {
 
 .shadow-board {
   position: absolute;
-  height: 368px;
+  height: 277px;
   background-color: initial;
 }
 
