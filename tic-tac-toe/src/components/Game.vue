@@ -68,29 +68,9 @@ export default {
       this.newGame()
     },
 
-    seedTwo () {
-      if (this.allTilesFull) { return }
-
-      let getRandomItem = () => {
-        let randomIndex = Math.floor(Math.random() * this.board.length)
-
-        return this.board[randomIndex]
-      }
-
-      let randomItem = getRandomItem()
-
-      while (randomItem.value !== 0) {
-        randomItem = getRandomItem()
-      }
-
-      randomItem.value = 2
-    },
-
     newGame () {
       this.resetBoard()
       this.resetScore()
-      this.seedTwo()
-      this.seedTwo()
       this.gameOver = false
     },
 
