@@ -67,8 +67,8 @@ export default {
       new TWEEN.Tween({ tweeningNumber: oldValue })
         .easing(TWEEN.Easing.Quadratic.Out)
         .to({ tweeningNumber: newValue }, 500)
-        .onUpdate(function () {
-          self.animatedScore = this.tweeningNumber.toFixed(0)
+        .onUpdate(function (object) {
+          self.animatedScore = object.tweeningNumber.toFixed(0)
         })
         .start()
       animate()
