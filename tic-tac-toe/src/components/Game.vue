@@ -5,7 +5,7 @@
       <transition-group name="tile" tag="div" class="board">
         <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
       </transition-group>
-      <div class="board shadow-board" v-pan="onPan">
+      <div class="board shadow-board" v-tap="onTap">
         <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
       </div>
     </div>

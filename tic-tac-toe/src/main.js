@@ -7,12 +7,12 @@ require('typeface-montserrat')
 
 Vue.config.productionTip = false
 
-Vue.directive('pan', {
+Vue.directive('tap', {
   bind: function (el, binding) {
     if (typeof binding.value === 'function') {
       const mc = new Hammer(el)
-      mc.get('pan').set({ direction: Hammer.DIRECTION_ALL })
-      mc.on('pan', binding.value)
+      // mc.get('tap').set({ direction: Hammer.DIRECTION_ALL })
+      mc.on('tap', binding.value)
     }
   }
 })
