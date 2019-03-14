@@ -53,15 +53,9 @@ export default {
   methods: {
 
     checkGameState () {
-      this.moveUp('gamestate')
-      this.moveDown('gamestate')
-      this.moveLeft('gamestate')
-      this.moveRight('gamestate')
-      if (!this.mergeGameStateList.length > 0 || !this.slideGameStateList.length > 0) {
+      if (this.allTilesFull) {
         this.gameOver = true
       }
-      this.mergeGameStateList = []
-      this.slideGameStateList = []
     },
 
     setupBoard () {
