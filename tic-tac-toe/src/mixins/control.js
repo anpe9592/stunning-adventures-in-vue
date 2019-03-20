@@ -1,10 +1,19 @@
-// import _ from 'lodash'
+import _ from 'lodash'
 
 export default {
   methods: {
-    tap (a) {
-      console.log(a)
+    tap (x) {
+      let board = _.cloneDeep(_.chunk(this.board, 4))
+      for (let a = 0; a < board.length; a++) {
+        this.dosomthing(board, a, x)
+      }
       this.seedTwo()
+    },
+
+    dosomthing (board, a, x) {
+      console.log('x', x)
+      console.log('a', a)
+      console.log('board', board[0][0])
     },
 
     seedTwo () {
@@ -27,7 +36,7 @@ export default {
 
     onTap (event) {
       if (event.isFinal) {
-        this.tap(event)
+        this.tap(event.center)
       }
     }
   }
