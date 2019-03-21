@@ -1,11 +1,14 @@
 <template>
-  <div class="tile" v-bind:style="{backgroundColor: backgroundColor}" v-bind:class="{'tile-empty': emptyTile}">
+  <div class="tile" v-tap="onTap" v-bind:style="{backgroundColor: backgroundColor}" v-bind:class="{'tile-empty': emptyTile}">
+    <div class="myElement" >
     {{ displayingValue }}
+    </div>
   </div>
 </template>
 
 <script>
 import Velocity from 'velocity-animate'
+import Hammer from 'hammerjs/hammer'
 
 export default {
   name: 'tile',
@@ -53,6 +56,24 @@ export default {
     }
   },
 
+  methods: {
+    tap () {
+      var myElement = document.getElementById('myElement')
+      var mc = new Hammer(myElement)
+
+      mc.on('tap', function (ev) {
+        myElement.textContent = ev.type
+        console.log(ev.type)
+      })
+    },
+
+    onTap (event) {
+      if (event.isFinal) {
+        console.log('hello')
+      }
+    }
+  },
+
   computed: {
     value () {
       return this.tile.value
@@ -79,5 +100,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.myElement {
+  width: 5em;
+  height: 5em;
+}
 </style>

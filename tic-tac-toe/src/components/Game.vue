@@ -5,7 +5,7 @@
       <transition-group name="tile" tag="div" class="board">
         <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
       </transition-group>
-      <div class="board shadow-board" v-tap="onTap">
+      <div class="board shadow-board">
         <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
       </div>
     </div>
@@ -15,11 +15,11 @@
 <script>
 import tile from '@/components/tile.vue'
 import gameMenu from '@/components/gameMenu.vue'
-import control from '@/mixins/control'
-
+// import control from '@/mixins/control'
+// v-tap="onTap"
 export default {
   name: 'Game',
-  mixins: [control],
+  // mixins: [control],
   components: {
     tile,
     gameMenu
