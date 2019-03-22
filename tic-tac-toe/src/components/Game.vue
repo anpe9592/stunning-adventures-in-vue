@@ -15,11 +15,11 @@
 <script>
 import tile from '@/components/tile.vue'
 import gameMenu from '@/components/gameMenu.vue'
-// import control from '@/mixins/control'
-// v-tap="onTap"
+import control from '@/mixins/control'
+
 export default {
   name: 'Game',
-  // mixins: [control],
+  mixins: [control],
   components: {
     tile,
     gameMenu
@@ -62,9 +62,16 @@ export default {
       this.newGame()
     },
 
+    seedTwo () {
+      let randomItem = this.board[2]
+
+      randomItem.value = 2
+    },
+
     newGame () {
       this.resetBoard()
       this.resetScore()
+      this.seedTwo()
       this.gameOver = false
     },
 
@@ -80,6 +87,10 @@ export default {
 
     resetScore () {
       this.$store.dispatch('resetScore')
+    },
+
+    click () {
+      console.log('hello')
     }
   }
 }
