@@ -54,8 +54,6 @@ export default {
 
   methods: {
     touch (n) {
-      console.log(this.board)
-      console.log(n)
       let randomItem = this.board[n]
 
       randomItem.value = 2
