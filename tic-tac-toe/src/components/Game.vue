@@ -71,16 +71,9 @@ export default {
       this.newGame()
     },
 
-    seedTwo () {
-      let randomItem = this.board[2]
-
-      randomItem.value = 2
-    },
-
     newGame () {
       this.resetBoard()
       this.resetScore()
-      // this.seedTwo()
       this.gameOver = false
     },
 
@@ -96,10 +89,6 @@ export default {
 
     resetScore () {
       this.$store.dispatch('resetScore')
-    },
-
-    click () {
-      console.log('hello')
     }
   }
 }
