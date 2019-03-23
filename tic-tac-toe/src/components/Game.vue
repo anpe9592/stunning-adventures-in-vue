@@ -6,7 +6,9 @@
         <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
       </transition-group>
       <div class="board shadow-board">
-        <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
+        <div v-for="n in board.length" :key="n" class="click" v-on:click="touch(n-1)">
+          <div class="tile shadow-tile"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -51,6 +53,13 @@ export default {
   },
 
   methods: {
+    touch (n) {
+      console.log(this.board)
+      console.log(n)
+      let randomItem = this.board[n]
+
+      randomItem.value = 2
+    },
 
     checkGameState () {
       if (this.allTilesFull) {
@@ -71,7 +80,7 @@ export default {
     newGame () {
       this.resetBoard()
       this.resetScore()
-      this.seedTwo()
+      // this.seedTwo()
       this.gameOver = false
     },
 
@@ -154,5 +163,20 @@ export default {
 
 .shadow-tile {
   z-index: -1;
+}
+
+.click {
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  margin: 6px;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 5em;
+  height: 5em;
 }
 </style>
