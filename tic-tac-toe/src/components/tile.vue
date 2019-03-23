@@ -53,10 +53,6 @@ export default {
     }
   },
 
-  methods: {
-
-  },
-
   computed: {
     value () {
       return this.tile.value
