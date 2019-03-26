@@ -57,6 +57,8 @@ export default {
       let randomItem = this.board[n]
 
       randomItem.value = 2
+
+      this.playerAy()
     },
 
     checkGameState () {

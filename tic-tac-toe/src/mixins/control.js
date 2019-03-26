@@ -2,8 +2,8 @@ import _ from 'lodash'
 
 export default {
   methods: {
-    tap (x) {
-      let board = _.cloneDeep(_.chunk(this.board, 4))
+    playerAy () {
+      console.log('hello')
       for (let a = 0; a < board.length; a++) {
         this.dosomthing(board, a, x)
       }
