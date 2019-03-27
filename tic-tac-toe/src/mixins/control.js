@@ -5,6 +5,11 @@ export default {
     playerAy () {
       if (this.allTilesFull) { return }
       console.log('hello')
+
+      let randomIndex = Math.floor(Math.random() * this.board.length)
+      let ayMove = this.board[randomIndex]
+
+      ayMove.value = 3
     }
   }
 }
