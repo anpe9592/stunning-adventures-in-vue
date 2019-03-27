@@ -54,9 +54,9 @@ export default {
 
   methods: {
     touch (n) {
-      let randomItem = this.board[n]
+      let humanMove = this.board[n]
 
-      randomItem.value = 2
+      humanMove.value = 2
 
       this.playerAy()
     },
