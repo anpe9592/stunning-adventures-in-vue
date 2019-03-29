@@ -6,8 +6,17 @@ export default {
       if (this.allTilesFull) { return }
       console.log('hello')
 
-      let randomIndex = Math.floor(Math.random() * this.board.length)
-      let ayMove = this.board[randomIndex]
+      let getRandomItem = () => {
+        let randomIndex = Math.floor(Math.random() * this.board.length)
+
+        return this.board[randomIndex]
+      }
+
+      let ayMove = getRandomItem()
+
+      while (ayMove.value !== 0) {
+        ayMove = getRandomItem()
+      }
 
       ayMove.value = 3
     }
