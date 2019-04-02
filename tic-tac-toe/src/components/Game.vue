@@ -116,7 +116,7 @@ export default {
   width: 277px;
   padding: 6px;
   border-radius: 6px;
-  background-color: rgba(58, 41, 76, 0.5);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .shadow-board {
