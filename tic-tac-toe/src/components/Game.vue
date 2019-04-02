@@ -143,10 +143,6 @@ export default {
   height: 5em;
 }
 
-.tile-empty {
-  background: initial;
-}
-
 .tile-move {
   transition: transform .09s ease;
 }
