@@ -108,6 +108,7 @@ export default {
 .game-container {
   display: flex;
   justify-content: center;
+  background-color: rgba(58, 41, 76, 0.5);
 }
 
 .board {
