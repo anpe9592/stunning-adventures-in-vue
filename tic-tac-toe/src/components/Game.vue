@@ -56,7 +56,7 @@ export default {
     touch (n) {
       let humanMove = this.board[n]
 
-      humanMove.value = 2
+      humanMove.value = 6
 
       this.playerAy()
     },
