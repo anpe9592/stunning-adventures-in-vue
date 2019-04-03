@@ -19,7 +19,6 @@ export default {
   data () {
     return {
       colors: [
-        '',
         '#90CCC8',
         '#90C2CE',
         '#8FB2D1',
