@@ -17,7 +17,7 @@ export default {
         ayMove = getRandomItem()
       }
 
-      ayMove.value = 12
+      ayMove.value = 4
     }
   }
 }
