@@ -91,6 +91,13 @@ export default {
       if (this.board[2].value === 2 && this.board[5].value === 2 && this.board[8].value === 2) {
         this.gameOver = true
       }
+      // lateral
+      if (this.board[0].value === 2 && this.board[4].value === 2 && this.board[8].value === 2) {
+        this.gameOver = true
+      }
+      if (this.board[6].value === 2 && this.board[4].value === 2 && this.board[2].value === 2) {
+        this.gameOver = true
+      }
     },
 
     checkGameState () {
