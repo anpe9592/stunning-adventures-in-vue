@@ -69,6 +69,18 @@ export default {
       humanMove.value = 2
 
       this.playerAy()
+
+      console.log(this.board[0].value)
+      // row
+      if (this.board[0].value === 2 && this.board[1].value === 2 && this.board[2].value === 2) {
+        this.gameOver = true
+      }
+      if (this.board[3].value === 2 && this.board[4].value === 2 && this.board[5].value === 2) {
+        this.gameOver = true
+      }
+      if (this.board[6].value === 2 && this.board[7].value === 2 && this.board[8].value === 2) {
+        this.gameOver = true
+      }
     },
 
     checkGameState () {
