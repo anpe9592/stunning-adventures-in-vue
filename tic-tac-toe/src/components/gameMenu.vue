@@ -19,7 +19,11 @@
     <a class="button space-right" @click="newGame()">New Game</a>
     <transition name="fade">
       <div v-if="gameOver" class="modal">
-        <h1>Game Over!</h1>
+        <h1>Draw!</h1>
+        <a class="button button-black" @click="newGame()">Try again</a>
+      </div>
+      <div v-if="won" class="modal">
+        <h1>Game Won!</h1>
         <a class="button button-black" @click="newGame()">Try again</a>
       </div>
     </transition>
@@ -35,6 +39,11 @@ export default {
 
   props: {
     gameOver: {
+      type: Boolean,
+      required: true
+    },
+
+    won: {
       type: Boolean,
       required: true
     }

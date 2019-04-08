@@ -1,6 +1,6 @@
 <template>
   <div class="Game">
-    <gameMenu @new-game="newGame()" :gameOver="gameOver"></gameMenu>
+    <gameMenu @new-game="newGame()" :gameOver="gameOver" :won="won"></gameMenu>
     <div class="game-container">
       <transition-group name="tile" tag="div" class="board">
         <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
@@ -30,7 +30,8 @@ export default {
   data () {
     return {
       board: [],
-      gameOver: false
+      gameOver: false,
+      won: false
     }
   },
 
@@ -77,6 +78,7 @@ export default {
       this.resetBoard()
       this.resetScore()
       this.gameOver = false
+      this.won = false
     },
 
     resetBoard () {

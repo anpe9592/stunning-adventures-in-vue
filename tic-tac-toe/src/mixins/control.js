@@ -23,30 +23,30 @@ export default {
     didIwin (n) {
       // row
       if (this.board[0].value === n && this.board[1].value === n && this.board[2].value === n) {
-        this.gameOver = true
+        this.won = true
       }
       if (this.board[3].value === n && this.board[4].value === n && this.board[5].value === n) {
-        this.gameOver = true
+        this.won = true
       }
       if (this.board[6].value === n && this.board[7].value === n && this.board[8].value === n) {
-        this.gameOver = true
+        this.won = true
       }
       // col
       if (this.board[0].value === n && this.board[3].value === n && this.board[6].value === n) {
-        this.gameOver = true
+        this.won = true
       }
       if (this.board[1].value === n && this.board[4].value === n && this.board[7].value === n) {
-        this.gameOver = true
+        this.won = true
       }
       if (this.board[2].value === n && this.board[5].value === n && this.board[8].value === n) {
-        this.gameOver = true
+        this.won = true
       }
       // lateral
       if (this.board[0].value === n && this.board[4].value === n && this.board[8].value === n) {
-        this.gameOver = true
+        this.won = true
       }
       if (this.board[6].value === n && this.board[4].value === n && this.board[2].value === n) {
-        this.gameOver = true
+        this.won = true
       }
     }
   }
