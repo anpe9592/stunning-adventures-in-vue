@@ -39,12 +39,6 @@ export default {
       if (boardFull) {
         this.checkGameState()
       }
-    },
-
-    threeInLine (three, _) {
-      if (three) {
-        this.checkGameState()
-      }
     }
   },
 
@@ -54,10 +48,6 @@ export default {
 
   computed: {
     allTilesFull () {
-      return !this.board.filter(tile => tile.value === 0).length > 0
-    },
-
-    threeInLine () {
       return !this.board.filter(tile => tile.value === 0).length > 0
     }
   },
@@ -70,16 +60,11 @@ export default {
 
       this.playerAy()
 
-      console.log(this.board[0].value)
       this.didIwin(2)
     },
 
     checkGameState () {
       if (this.allTilesFull) {
-        this.gameOver = true
-      }
-
-      if (this.threeInLine) {
         this.gameOver = true
       }
     },
