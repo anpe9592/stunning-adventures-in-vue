@@ -23,7 +23,7 @@
         <a class="button button-black" @click="newGame()">Try again</a>
       </div>
       <div v-if="won" class="modal">
-        <h1>Game Won!</h1>
+        <h1>{{ this.$store.state.winner }} Won!</h1>
         <a class="button button-black" @click="newGame()">Try again</a>
       </div>
     </transition>
@@ -53,6 +53,7 @@ export default {
     return {
       animatedScore: 0,
       animatedBest: 0,
+      winner: 0,
       pointsIncrease: []
     }
   },
