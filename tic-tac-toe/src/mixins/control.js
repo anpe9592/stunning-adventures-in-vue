@@ -18,6 +18,8 @@ export default {
       }
 
       ayMove.value = 4
+
+      this.didIwin(4)
     },
 
     didIwin (n) {
