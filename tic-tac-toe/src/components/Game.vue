@@ -76,7 +76,7 @@ export default {
 
     newGame () {
       this.resetBoard()
-      this.resetScore()
+      this.resetWinner()
       this.gameOver = false
       this.won = false
     },
@@ -91,8 +91,8 @@ export default {
         })
     },
 
-    resetScore () {
-      this.$store.dispatch('resetScore')
+    resetWinner () {
+      this.$store.dispatch('resetWinner')
     }
   }
 }
