@@ -105,10 +105,6 @@ export default {
 
   methods: {
     newGame () {
-      if (this.$store.state.best < this.$store.state.score) {
-        this.$store.dispatch('updateBest', this.$store.state.score)
-        this.animatedBest = this.$store.state.best
-      }
       this.$emit('new-game')
     }
   }
