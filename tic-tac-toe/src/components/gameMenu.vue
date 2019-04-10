@@ -20,7 +20,7 @@
         <a class="button button-black" @click="newGame()">Try again</a>
       </div>
       <div v-if="won" class="modal">
-        <h1>{{ this.$store.state.winner }} Won!</h1>
+        <h1>{{ this.gameWon() }} Won!</h1>
         <a class="button button-black" @click="newGame()">Try again</a>
       </div>
     </transition>
@@ -55,6 +55,10 @@ export default {
   methods: {
     newGame () {
       this.$emit('new-game')
+    },
+
+    gameWon () {
+      return this.$store.state.winner
     }
   }
 }
