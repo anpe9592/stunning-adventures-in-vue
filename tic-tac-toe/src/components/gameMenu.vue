@@ -5,11 +5,11 @@
       <div class="scores space-right">
         <div class="score">
           <div class="score-title">X</div>
-          <div class="score-value">{{ animatedScore }}</div>
+          <div class="score-value">{{ this.$store.state.score }}</div>
         </div>
         <div class="score">
           <div class="score-title">O</div>
-          <div class="score-value">{{ animatedBest }}</div>
+          <div class="score-value">{{ this.$store.state.best }}</div>
         </div>
       </div>
     </div>
