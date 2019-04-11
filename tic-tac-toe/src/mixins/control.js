@@ -27,36 +27,52 @@ export default {
       if (this.board[0].value === n && this.board[1].value === n && this.board[2].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
       }
       if (this.board[3].value === n && this.board[4].value === n && this.board[5].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
       }
       if (this.board[6].value === n && this.board[7].value === n && this.board[8].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
       }
       // col
       if (this.board[0].value === n && this.board[3].value === n && this.board[6].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
       }
       if (this.board[1].value === n && this.board[4].value === n && this.board[7].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
       }
       if (this.board[2].value === n && this.board[5].value === n && this.board[8].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
       }
       // lateral
       if (this.board[0].value === n && this.board[4].value === n && this.board[8].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
       }
       if (this.board[6].value === n && this.board[4].value === n && this.board[2].value === n) {
         this.won = true
         this.$store.dispatch('updateWinner', n)
+        this.score(n)
+      }
+    },
+
+    score (n) {
+      if (n === 2) {
+        this.$store.dispatch('updateScore')
+      } else {
+        this.$store.dispatch('updateBest')
       }
     }
   }

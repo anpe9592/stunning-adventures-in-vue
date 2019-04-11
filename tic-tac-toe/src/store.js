@@ -14,11 +14,11 @@ export default new Vuex.Store({
     updateWinner (state, winner) {
       state.winner = winner
     },
-    updateScore (state, score) {
-      state.score += score
+    updateScore (state) {
+      state.score += 1
     },
-    updateBest (state, best) {
-      state.best = best
+    updateBest (state) {
+      state.best += 1
     },
     resetWinner (state) {
       state.winner = 0
@@ -34,11 +34,11 @@ export default new Vuex.Store({
     updateWinner (context, winner) {
       context.commit('updateWinner', winner)
     },
-    updateScore (context, score) {
-      context.commit('updateScore', score)
+    updateScore (context) {
+      context.commit('updateScore')
     },
-    updateBest (context, best) {
-      context.commit('updateBest', best)
+    updateBest (context) {
+      context.commit('updateBest')
     },
     resetWinner (context) {
       context.commit('resetWinner')
