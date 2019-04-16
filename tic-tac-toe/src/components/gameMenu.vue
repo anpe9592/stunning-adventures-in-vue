@@ -45,10 +45,7 @@ export default {
 
   data () {
     return {
-      animatedScore: 0,
-      animatedBest: 0,
-      winner: 0,
-      pointsIncrease: []
+      winner: 0
     }
   },
 
