@@ -57,11 +57,12 @@ export default {
     touch (n) {
       let humanMove = this.board[n]
 
-      humanMove.value = 2
+      humanMove.value = 'x'
 
       this.playerAy()
 
-      this.didIwin(2)
+      this.didIwin('x')
+
     },
 
     checkGameState () {
