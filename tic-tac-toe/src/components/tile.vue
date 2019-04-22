@@ -49,7 +49,7 @@ export default {
         return this.value
       }
 
-      return null
+      return this.value
     },
 
     emptyTile () {
