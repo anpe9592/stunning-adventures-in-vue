@@ -57,7 +57,15 @@ export default {
     },
 
     backgroundColor () {
-      return this.colors[this.value.toString(2).length - 1]
+      if (this.value === 'x') {
+        return this.colors[1]
+      }
+
+      if (this.value === 4) {
+        return this.colors[2]
+      }
+
+      return null
     }
   }
 }
