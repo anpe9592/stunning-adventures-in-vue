@@ -45,11 +45,11 @@ export default {
     },
 
     displayingValue () {
-      if (this.value > 0) {
+      if (this.value === 'x' || this.value === 4) {
         return this.value
       }
 
-      return this.value
+      return null
     },
 
     emptyTile () {
