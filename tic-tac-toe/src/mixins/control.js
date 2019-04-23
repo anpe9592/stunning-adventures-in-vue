@@ -53,7 +53,7 @@ export default {
     score (n) {
       this.won = true
       this.$store.dispatch('updateWinner', n)
-      if (n === 2) {
+      if (n === 'x') {
         this.$store.dispatch('updateScore')
       } else {
         this.$store.dispatch('updateBest')
