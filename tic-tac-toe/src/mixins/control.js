@@ -15,9 +15,9 @@ export default {
         ayMove = getRandomItem()
       }
 
-      ayMove.value = 4
+      ayMove.value = 'o'
 
-      this.didIwin(4)
+      this.didIwin('o')
     },
 
     didIwin (n) {

@@ -45,7 +45,7 @@ export default {
     },
 
     displayingValue () {
-      if (this.value === 'x' || this.value === 4) {
+      if (this.value === 'x' || this.value === 'o') {
         return this.value
       }
 
@@ -61,7 +61,7 @@ export default {
         return this.colors[1]
       }
 
-      if (this.value === 4) {
+      if (this.value === 'o') {
         return this.colors[2]
       }
 
