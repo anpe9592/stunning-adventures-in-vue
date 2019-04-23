@@ -62,7 +62,6 @@ export default {
       this.playerAy()
 
       this.didIwin('x')
-
     },
 
     checkGameState () {
