@@ -55,13 +55,15 @@ export default {
 
   methods: {
     touch (n) {
-      let humanMove = this.board[n]
+      if (this.board[n].value === 0) {
+        let humanMove = this.board[n]
 
-      humanMove.value = 'x'
+        humanMove.value = 'x'
 
-      this.playerAy()
+        this.playerAy()
 
-      this.didIwin('x')
+        this.didIwin('x')
+      }
     },
 
     checkGameState () {
