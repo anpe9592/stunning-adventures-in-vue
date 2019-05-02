@@ -62,7 +62,9 @@ export default {
 
         this.playerAy()
 
-        this.didIwin('x')
+        if (!this.allTilesFull) {
+          this.didIwin('x')
+        }
       }
     },
 

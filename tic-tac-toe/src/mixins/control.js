@@ -17,7 +17,9 @@ export default {
 
       ayMove.value = 'o'
 
-      this.didIwin('o')
+      if (!this.allTilesFull) {
+        this.didIwin('o')
+      }
     },
 
     didIwin (n) {
