@@ -60,6 +60,8 @@ export default {
       } else {
         this.$store.dispatch('updateBest')
       }
+
+      return true
     }
   }
 }

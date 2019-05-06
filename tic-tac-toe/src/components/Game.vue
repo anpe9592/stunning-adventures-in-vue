@@ -38,7 +38,9 @@ export default {
   watch: {
     allTilesFull (boardFull, _) {
       if (boardFull) {
-        this.checkGameState()
+        if (this.didIwin('x') !== true || this.didIwin('o') !== true) {
+          this.checkGameState()
+        }
       }
     }
   },
