@@ -17,7 +17,7 @@
     <transition name="fade">
       <div v-if="won" class="modal">
         <h1>{{ this.gameWon() }} Won!</h1>
-        <a class="button button-black" @click="newGame()">Try again</a>
+        <a class="button button-black" @click="newGame()">Play again</a>
       </div>
       <div v-else-if="gameOver" class="modal">
         <h1>Draw!</h1>
