@@ -1,5 +1,7 @@
 # tic-tac-toe
 
+![Screenshot](/pic/tictactoe.png)
+
 ## Project setup
 ```
 yarn install
