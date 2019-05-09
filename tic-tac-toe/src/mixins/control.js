@@ -58,7 +58,7 @@ export default {
       if (n === 'x') {
         this.$store.dispatch('updatePlayer')
       } else {
-        this.$store.dispatch('updateBest')
+        this.$store.dispatch('updateAy')
       }
 
       return true

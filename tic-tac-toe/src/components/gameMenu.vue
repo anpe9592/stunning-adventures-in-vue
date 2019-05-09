@@ -9,7 +9,7 @@
         </div>
         <div class="score">
           <div class="score-title">O</div>
-          <div class="score-value">{{ this.$store.state.best }}</div>
+          <div class="score-value">{{ this.$store.state.ay }}</div>
         </div>
       </div>
     </div>

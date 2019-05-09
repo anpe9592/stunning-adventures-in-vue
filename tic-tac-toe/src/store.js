@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    best: 0,
     player: 0,
+    ay: 0,
     winner: 0
 
   },
@@ -17,8 +17,8 @@ export default new Vuex.Store({
     updatePlayer (state) {
       state.player += 1
     },
-    updateBest (state) {
-      state.best += 1
+    updateAy (state) {
+      state.ay += 1
     },
     resetWinner (state) {
       state.winner = 0
@@ -26,8 +26,8 @@ export default new Vuex.Store({
     resetPlayer (state) {
       state.player = 0
     },
-    resetBest (state) {
-      state.best = 0
+    resetAy (state) {
+      state.ay = 0
     }
   },
   actions: {
@@ -37,8 +37,8 @@ export default new Vuex.Store({
     updatePlayer (context) {
       context.commit('updatePlayer')
     },
-    updateBest (context) {
-      context.commit('updateBest')
+    updateAy (context) {
+      context.commit('updateAy')
     },
     resetWinner (context) {
       context.commit('resetWinner')
@@ -46,8 +46,8 @@ export default new Vuex.Store({
     resetPlayer (context) {
       context.commit('resetPlayer')
     },
-    resetBest (context) {
-      context.commit('resetBest')
+    resetAy (context) {
+      context.commit('resetAy')
     }
   }
 })
