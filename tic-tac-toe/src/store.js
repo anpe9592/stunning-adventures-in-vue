@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    score: 0,
     best: 0,
+    player: 0,
     winner: 0
 
   },
@@ -14,8 +14,8 @@ export default new Vuex.Store({
     updateWinner (state, winner) {
       state.winner = winner
     },
-    updateScore (state) {
-      state.score += 1
+    updatePlayer (state) {
+      state.player += 1
     },
     updateBest (state) {
       state.best += 1
@@ -23,8 +23,8 @@ export default new Vuex.Store({
     resetWinner (state) {
       state.winner = 0
     },
-    resetScore (state) {
-      state.score = 0
+    resetPlayer (state) {
+      state.player = 0
     },
     resetBest (state) {
       state.best = 0
@@ -34,8 +34,8 @@ export default new Vuex.Store({
     updateWinner (context, winner) {
       context.commit('updateWinner', winner)
     },
-    updateScore (context) {
-      context.commit('updateScore')
+    updatePlayer (context) {
+      context.commit('updatePlayer')
     },
     updateBest (context) {
       context.commit('updateBest')
@@ -43,8 +43,8 @@ export default new Vuex.Store({
     resetWinner (context) {
       context.commit('resetWinner')
     },
-    resetScore (context) {
-      context.commit('resetScore')
+    resetPlayer (context) {
+      context.commit('resetPlayer')
     },
     resetBest (context) {
       context.commit('resetBest')

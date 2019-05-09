@@ -5,7 +5,7 @@
       <div class="scores space-right">
         <div class="score">
           <div class="score-title">X</div>
-          <div class="score-value">{{ this.$store.state.score }}</div>
+          <div class="score-value">{{ this.$store.state.player }}</div>
         </div>
         <div class="score">
           <div class="score-title">O</div>
